@@ -1,0 +1,45 @@
+namespace org.acme.model
+
+asset Grade identified by facilityNumber{
+	o String safetycheck_date 
+	o String facilityNumber
+	--> User admin
+  o Grade_State Electricity
+  o Grade_State Gas
+  o Grade_State Elevator
+  o Grade_State Building
+  o Grade_State FireSafety
+	
+}
+
+
+enum Grade_State{
+	o Red
+	o Yellow
+	o Green
+}
+
+
+participant User identified by email {
+  o String phonenumber
+  o String email
+  o String firstName
+  o String lastName
+}
+
+
+transaction GradeUpdate{
+  o String safetycheck_date_update
+  o Grade_State Electricity_update
+  o Grade_State Gas_update
+  o Grade_State Elevator_update
+  o Grade_State Building_update
+  o Grade_State FireSafety_update
+  -->Grade grade_prev
+  -->User user
+}
+
+event GradeUpdateNotification {
+  -->Grade grade_prev
+  
+}

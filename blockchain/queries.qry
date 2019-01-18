@@ -1,0 +1,30 @@
+
+query selectGradesByFacilityNumber {
+  description: "Select Grades based on their FacilityNumber"
+  statement:
+      SELECT org.acme.model.GradeUpdate
+          WHERE (grade_prev == _$grade_prev)
+}
+
+
+query selectGradesBySafetyCheck_date {
+  description: "Select Grades based on their SafetyCheck_date"
+  statement:
+      SELECT org.acme.model.Grade
+          WHERE (safetycheck_date==_$safetycheck_date)
+}
+
+
+query selectGradesByAdministrator {
+  description: "Select Grades based on their Administrator"
+  statement:
+      SELECT org.acme.model.Grade
+          WHERE (admin == _$admin)
+}
+
+
+query selectGrades {
+  description: "Select all grades"
+  statement:
+      SELECT org.acme.model.Grade
+}
